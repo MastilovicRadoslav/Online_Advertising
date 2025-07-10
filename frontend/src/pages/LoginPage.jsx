@@ -1,11 +1,12 @@
 import React from 'react'
-import { Form, Input, Button, message } from 'antd'
+import { Form, Input, Button, message, Typography } from 'antd'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import './AuthPages.css'
 
 const LoginPage = () => {
     const navigate = useNavigate()
+    const { Link } = Typography;
 
     const onFinish = async (values) => {
         try {
@@ -45,6 +46,11 @@ const LoginPage = () => {
                     </Button>
                 </Form.Item>
             </Form>
+            
+            <div className="auth-switch">
+                Nemate nalog? <Link onClick={() => navigate('/signup')}>Registrujte se</Link>
+            </div>
+
         </div>
     )
 }
