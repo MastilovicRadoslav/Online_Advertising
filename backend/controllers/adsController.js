@@ -142,6 +142,7 @@ const updateAd = async (req, res) => {
 
 const deleteAd = async (req, res) => {
     const id = req.params.id.trim();
+    console.log("ID:", JSON.stringify(req.params.id));
 
     // Validacija ObjectId
     if (!mongoose.Types.ObjectId.isValid(id)) {
