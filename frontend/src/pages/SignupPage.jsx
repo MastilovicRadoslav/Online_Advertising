@@ -1,4 +1,4 @@
-import { Form, Input, Button, message } from 'antd'
+import { Form, Input, Button, message, Typography } from 'antd'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import './AuthPages.css'
@@ -8,12 +8,13 @@ import Password from 'antd/es/input/Password'
 const SignupPage = () => {
 
     const navigate = useNavigate();
+    const { Link } = Typography;
 
     const onFinish = async (values) => {
         try {
             await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, values)
             message.success('Registracija uspješna! Možete se prijaviti.')
-            navigate('./login');
+            navigate('/login')
         } catch (err) {
             message.error(err.response?.data?.message || 'Greška pri registraciji.')
         }
@@ -56,6 +57,11 @@ const SignupPage = () => {
                     </Button>
                 </FormItem>
             </Form>
+
+            <div className="auth-switch">
+                Imate nalog? <Link onClick={() => navigate('/login')}>Prijavite se</Link>
+            </div>
+
         </div>
     )
 }

@@ -13,3 +13,22 @@
     font-size: 24px;
     font-weight: 600;
 }
+
+.auth-switch {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #555;
+}
+
+.auth-link {
+    color: #1677ff;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+    color: #0958d9;
+    text-decoration: underline;
+}
