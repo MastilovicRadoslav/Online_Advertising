@@ -1,0 +1,25 @@
+/* AdDetailsPage.css */
+.ad-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.ad-details-description {
+  margin-top: 20px;
+}
+
+.ad-details-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.ad-details-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
