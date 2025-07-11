@@ -21,6 +21,7 @@ const LoginPage = () => {
       });
 
       const { token, username, userId } = response.data;
+      console.log(token);
       login(token, username, userId);
       message.success("Uspješan login!");
       navigate("/");
