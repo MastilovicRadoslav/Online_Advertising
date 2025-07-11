@@ -1,5 +1,3 @@
-// backend/controllers/adsController.js
-
 const Ad = require("../models/Ad");
 
 const createAd = async (req, res) => {
@@ -64,11 +62,17 @@ const getAds = async (req, res) => {
         const skip = (Number(page) - 1) * pageSize;
 
         const ads = await Ad.find(query)
-            .sort({ createdAd: -1 })
+            .sort({ createdAt: -1 }) 
             .skip(skip)
             .limit(pageSize)
             .populate("user", "username phone");
-        res.json(ads);
+
+        const total = await Ad.countDocuments(query); // ← dodaj ovo
+
+        res.json({
+            ads,
+            total, // ← i ovo
+        });
 
     } catch (err) {
         console.error(err);
