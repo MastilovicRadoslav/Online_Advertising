@@ -16,6 +16,8 @@ const AdDetailsPage = () => {
   const [ad, setAd] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL || "http://localhost:5000";
+
 
   const fetchAd = async () => {
     setLoading(true);
@@ -63,7 +65,11 @@ const AdDetailsPage = () => {
     <div className="ad-details-container">
       <Title level={2}>{ad.title}</Title>
 
-      <Image src={ad.imageUrl} alt="Ad" width={300} />
+      <Image
+        src={`${IMAGE_BASE_URL}${ad.imageUrl}`}
+        alt="Ad"
+        width={300}
+      />
 
       <Descriptions bordered column={1} className="ad-details-description">
         <Descriptions.Item label="Description">{ad.description}</Descriptions.Item>
