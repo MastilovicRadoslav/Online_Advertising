@@ -20,9 +20,12 @@ const AdDetailsPage = () => {
   const fetchAd = async () => {
     setLoading(true);
     try {
-      const res = await api.get(`/ads/${id}`, {
-        headers: { Authorization: `Bearer ${auth.token}` },
-      });
+      const config = {};
+      if (auth.token) {
+        config.headers = { Authorization: `Bearer ${auth.token}` };
+      }
+
+      const res = await api.get(`/ads/${id}`, config);
       setAd(res.data);
     } catch (err) {
       message.error("Failed to fetch ad.");
@@ -30,6 +33,7 @@ const AdDetailsPage = () => {
       setLoading(false);
     }
   };
+
 
   const handleDelete = async () => {
     try {

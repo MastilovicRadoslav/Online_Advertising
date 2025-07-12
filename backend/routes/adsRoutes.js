@@ -6,8 +6,8 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 // Zaštićena ruta
 router.post("/", authMiddleware, createAd);
-router.get("/", authMiddleware, getAds);
-router.get("/:id", authMiddleware, getAdById);
+router.get("/", getAds); // Ođe mi ne treba zaštita jer prikazujem i neregistorvanim
+router.get("/:id", getAdById); // Ođe mi ne treba zaštita jer prikazujem i neregistorvanim
 router.put("/:id", authMiddleware, updateAd);
 router.delete("/:id", authMiddleware, deleteAd);
 

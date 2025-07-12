@@ -3,7 +3,6 @@ import HomePage from "./pages/HomePage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import AdDetailsPage from "./pages/AdDetailsPage.jsx";
-import CreateEditAdPage from "./pages/CreateEditAdPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import { Layout } from "antd";
 
@@ -18,8 +17,6 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/ads/:id" element={<AdDetailsPage />} />
-            <Route path="/create" element={<CreateEditAdPage />} />
-            <Route path="/edit/:id" element={<CreateEditAdPage />} />
           </Routes>
         </div>
       </Layout>

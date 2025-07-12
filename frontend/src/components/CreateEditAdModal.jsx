@@ -12,11 +12,14 @@ const CreateEditAdModal = ({ visible, onClose, ad = null, onSuccess }) => {
 
   const isEdit = !!ad;
 
-  useEffect(() => {
-    if (!visible) {
-      form.resetFields();
-    }
-  }, [visible]);
+useEffect(() => {
+  if (visible) {
+    form.setFieldsValue(ad || {});
+  } else {
+    form.resetFields();
+  }
+}, [visible, ad]);
+
 
   const handleFinish = async (values) => {
     try {
@@ -44,7 +47,7 @@ const CreateEditAdModal = ({ visible, onClose, ad = null, onSuccess }) => {
   return (
     <Modal
       open={visible}
-      title={isEdit ? "Edit Advertisment" : "Create Advertisment"}
+      title={isEdit ? "Edit Ad" : "Create Ad"}
       onCancel={onClose}
       onOk={() => form.submit()}
       confirmLoading={loading}
