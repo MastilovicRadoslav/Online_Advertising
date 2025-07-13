@@ -128,7 +128,7 @@ const CreateEditAdModal = ({ visible, onClose, ad = null, onSuccess }) => {
                 reader.readAsDataURL(file);
               }
             }}
-          className="styled-upload"
+            className="styled-upload"
 
           />
           {imagePreview && (

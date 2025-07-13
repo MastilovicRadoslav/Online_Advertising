@@ -214,7 +214,7 @@ const HomePage = () => {
                 visible={modalVisible}
                 onClose={() => setModalVisible(false)}
                 ad={editAd}
-                onSuccess={fetchAds}
+                onSuccess={fetchAds} // direktno pozivamo funkciju
             />
         </div>
     );
