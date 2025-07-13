@@ -1,9 +1,9 @@
 # 📢 Online Advertisements App
 
-Full Stack web aplikacija za online oglašavanje – korisnici mogu da postavljaju, pretražuju, uređuju i brišu oglase. Aplikacija omogućava autentifikaciju, prikaz detalja i filtriranje oglasa po različitim kriterijumima.
+Full Stack web aplikacija za online oglašavanje – korisnici mogu da postavljaju, pretražuju, uređuju i brišu oglase. Aplikacija omogućava autentifikaciju, autorizaciju, prikaz detalja i filtriranje oglasa po različitim kriterijumima. Aplikacija je osnova za sve ostale moguće implementacije kojih ima mnogo.
 
 ---
-Testirana aplikacija:
+Testirana aplikacija: [Demo](https://www.youtube.com/watch?v=I_Apy5U9VOg&ab_channel=%D0%A0%D0%B0%D0%B4%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%9C%D0%B0%D1%81%D1%82%D0%B8%D0%BB%D0%BE%D0%B2%D0%B8%D1%9B)
 
 ## 🚀 Pokretanje projekta lokalno
 
@@ -51,7 +51,7 @@ Frontend će biti dostupan na: [http://localhost:5173](http://localhost:5173)
 
 ## 🧪 Seedovanje baze (opciono)
 
-Pokreni sledeći skript kako bi ubacio test korisnike i oglase:
+Pokreni sledeći skript kako bi ubacio test korisnike i oglase (BONUS):
 
 ```bash
 node seed.js
@@ -74,7 +74,7 @@ node seed.js
 ## 🗃️ Struktura projekta
 
 ```bash
-online-ads-app/
+Online_Advertising/
 ├── backend/              # Express + MongoDB backend
 │   ├── controllers/
 │   ├── middleware/
@@ -88,6 +88,9 @@ online-ads-app/
 │   ├── pages/
 │   ├── styles/
 │   └── main.jsx
+├── Project specification
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
