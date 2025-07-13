@@ -4,7 +4,7 @@ const adSchema = new mongoose.Schema({
     title: {type: String, required: true },
     description: { type: String },
     imageUrl: { type: String },
-    price: { type: String },
+    price: { type: Number },
     category: {
         type: String,
         enum: [ 
