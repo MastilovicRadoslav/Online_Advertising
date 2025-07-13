@@ -1,20 +1,21 @@
-/* AdDetailsPage.css */
 .ad-details-container {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 24px;
-  background: #fff;
-  border-radius: 8px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 
 .ad-details-description {
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .ad-details-actions {
-  margin-top: 20px;
+  margin-top: 24px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  justify-content: flex-end;
 }
 
 .ad-details-spinner {
@@ -22,4 +23,21 @@
   justify-content: center;
   align-items: center;
   height: 80vh;
+}
+
+.ant-descriptions-bordered .ant-descriptions-item-label {
+  font-weight: 600;
+  background-color: #fafafa;
+}
+
+.ant-descriptions-bordered .ant-descriptions-item-content {
+  background-color: #fcfcfc;
+}
+
+.ant-image {
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-bottom: 24px;
 }

@@ -12,6 +12,8 @@ import { UploadOutlined } from "@ant-design/icons";
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import api from "../services/api";
+import "../styles/CreateEditAdModal.css";
+
 
 const { Option } = Select;
 
@@ -104,7 +106,7 @@ const CreateEditAdModal = ({ visible, onClose, ad = null, onSuccess }) => {
       onOk={() => form.submit()}
       confirmLoading={loading}
     >
-      <Form form={form} layout="vertical" onFinish={handleFinish}>
+      <Form form={form} layout="vertical" onFinish={handleFinish} className="ad-modal-form">
         <Form.Item label="Title" name="title" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
@@ -126,6 +128,8 @@ const CreateEditAdModal = ({ visible, onClose, ad = null, onSuccess }) => {
                 reader.readAsDataURL(file);
               }
             }}
+          className="styled-upload"
+
           />
           {imagePreview && (
             <img src={imagePreview} alt="Preview" style={{ marginTop: 10, maxWidth: "100%" }} />

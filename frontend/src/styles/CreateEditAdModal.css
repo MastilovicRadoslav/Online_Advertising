@@ -1,0 +1,64 @@
+.ad-modal-form .ant-form-item-label > label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #001529;
+}
+
+.ad-modal-form .ant-input,
+.ad-modal-form .ant-input-number,
+.ad-modal-form .ant-select-selector,
+.ad-modal-form .ant-input-textarea {
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.ad-modal-form .ant-input-textarea {
+  min-height: 100px;
+}
+
+.ad-modal-form .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.ad-modal-form img {
+  border-radius: 6px;
+  margin-top: 8px;
+  max-height: 200px;
+  object-fit: contain;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.styled-upload {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 6px 10px;
+  color: #595959;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover na cijeli input */
+.styled-upload:hover {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* Stilizacija samog dugmeta "Choose File" */
+.styled-upload::file-selector-button {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover za dugme */
+.styled-upload::file-selector-button:hover {
+  background-color: #40a9ff;
+}

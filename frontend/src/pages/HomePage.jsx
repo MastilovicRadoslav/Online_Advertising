@@ -13,6 +13,7 @@ import {
 } from "antd";
 import api from "../services/api";
 import CreateEditAdModal from "../components/CreateEditAdModal";
+import "../styles/HomePage.css";
 
 const { Option } = Select;
 const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL || "http://localhost:5000";
@@ -156,13 +157,13 @@ const HomePage = () => {
     };
 
     return (
-        <div>
+        <div className="homepage-container">
             {!auth.token && (
                 <div style={{ marginBottom: 20, textAlign: "center", backgroundColor: "#fffbe6", padding: "10px", border: "1px solid #ffe58f", borderRadius: 4 }}>
                     <strong>To access more features like creating, editing and deleting ads, please register and log in.</strong>
                 </div>
             )}
-            <Form layout="vertical" onValuesChange={onFilterChange} initialValues={filters}>
+            <Form layout="vertical" onValuesChange={onFilterChange} initialValues={filters} className="homepage-form">
                 <Row gutter={16}>
                     <Col span={6}>
                         <Form.Item label="Search" name="search">
