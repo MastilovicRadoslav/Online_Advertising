@@ -11,9 +11,12 @@ const LoginPage = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   const onFinish = async (values) => {
     setLoading(true);
+    setLoginError(""); // resetuj staru grešku
+
     try {
       const response = await api.post("/auth/login", {
         username: values.username,
@@ -21,13 +24,14 @@ const LoginPage = () => {
       });
 
       const { token, username, userId } = response.data;
-      console.log(token);
       login(token, username, userId);
-      message.success("Uspješan login!");
+      message.success("Login successful!");
       navigate("/");
     } catch (err) {
-      console.error(err);
-      message.error(err.response?.data?.message || "Greška pri loginu.");
+      const errorMsg =
+        err.response?.data?.message || "Login failed. Please try again.";
+      setLoginError(errorMsg);
+      message.error(errorMsg, 3); // prikaz popup poruke
     } finally {
       setLoading(false);
     }
@@ -60,6 +64,12 @@ const LoginPage = () => {
             </Button>
           </Form.Item>
         </Form>
+
+        {loginError && (
+          <Text type="danger" style={{ display: "block", marginTop: "10px" }}>
+            {loginError}
+          </Text>
+        )}
       </Card>
     </div>
   );

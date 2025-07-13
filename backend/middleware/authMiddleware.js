@@ -5,7 +5,7 @@ const authMiddleware = (req, res, next) => {
 
     // Provjera da li postoji token
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        return res.status(401).json({ message: "Niste autorizovani." });
+        return res.status(401).json({ message: "You are not authorized." });
     }
 
     const token = authHeader.split(" ")[1];
@@ -16,7 +16,7 @@ const authMiddleware = (req, res, next) => {
         req.user = decoded; //dodaj korisnika u request objekat
         next(); //moram pozvati da mi Express nastavio dalje
     } catch (err) {
-        return res.status(401).json({ message: "Nesipravan token." });
+        return res.status(401).json({ message: "Unresolved token." });
     }
 };
 

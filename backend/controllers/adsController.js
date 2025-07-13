@@ -78,7 +78,7 @@ const getAds = async (req, res) => {
 
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: "Greška prilikom dohvatanja oglasa." });
+        res.status(500).json({ message: "Error fetching ad." });
     }
 };
 
@@ -88,20 +88,20 @@ const getAdById = async (req, res) => {
     const id = req.params.id.trim();
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({ message: "Neispravan ID oglasa." });
+        return res.status(400).json({ message: "Invalid ad ID." });
     }
 
     try {
         const ad = await Ad.findById(id).populate("user", "username phone");
 
         if (!ad) {
-            return res.status(404).json({ message: "Oglas nije pronađen." });
+            return res.status(404).json({ message: "Ad not found." });
         }
 
         res.json(ad);
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: "Greška prilikom dohvatanja oglasa." });
+        res.status(500).json({ message: "Error fetching ad" });
     }
 };
 
@@ -151,27 +151,27 @@ const deleteAd = async (req, res) => {
 
     // Validacija ObjectId
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({ message: "Neispravan ID oglasa." });
+        return res.status(400).json({ message: "Invalid ad ID." });
     }
 
     try {
         const ad = await Ad.findById(id);
 
         if (!ad) {
-            return res.status(404).json({ message: "Oglas nije pronađen." });
+            return res.status(404).json({ message: "Ad not found." });
         }
 
         // Samo vlasnik može obrisati oglas
         if (ad.user.toString() !== req.user.userId) {
-            return res.status(403).json({ message: "Nemate dozvolu da obrišete ovaj oglas." });
+            return res.status(403).json({ message: "You do not have permission to delete this ad." });
         }
 
         await Ad.deleteOne({ _id: id }); // sigurniji od ad.remove()
 
-        res.json({ message: "Oglas uspješno obrisan." });
+        res.json({ message: "Ad successfully deleted." });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: "Greška prilikom brisanja oglasa." });
+        res.status(500).json({ message: "Error deleting ad." });
     }
 };
 

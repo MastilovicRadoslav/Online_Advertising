@@ -100,7 +100,7 @@ const HomePage = () => {
             dataIndex: "imageUrl",
             render: (url) => {
                 const fullUrl = `${IMAGE_BASE_URL}${url}`;
-                console.log("📸 Full image URL:", fullUrl); // 👈 ovo dodaješ
+                console.log("Full image URL:", fullUrl); //
 
                 return url ? (
                     <img
@@ -157,6 +157,11 @@ const HomePage = () => {
 
     return (
         <div>
+            {!auth.token && (
+                <div style={{ marginBottom: 20, textAlign: "center", backgroundColor: "#fffbe6", padding: "10px", border: "1px solid #ffe58f", borderRadius: 4 }}>
+                    <strong>To access more features like creating, editing and deleting ads, please register and log in.</strong>
+                </div>
+            )}
             <Form layout="vertical" onValuesChange={onFilterChange} initialValues={filters}>
                 <Row gutter={16}>
                     <Col span={6}>

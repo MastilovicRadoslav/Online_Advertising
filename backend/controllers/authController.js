@@ -8,7 +8,7 @@ const registerUser = async (req, res) => {
 
     const existingUser = await User.findOne({ username });
     if (existingUser) {
-      return res.status(400).json({ message: "Korisničko ime je zauzeto." });
+      return res.status(400).json({ message: "Username is taken." });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -21,10 +21,10 @@ const registerUser = async (req, res) => {
 
     await newUser.save();
 
-    res.status(201).json({ message: "Uspješna registracija." });
+    res.status(201).json({ message: "Successful registration." });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Greška pri registraciji.", error: err.message });
+    res.status(500).json({ message: "Registration error.", error: err.message });
   }
 };
 
@@ -35,12 +35,12 @@ const loginUser = async (req, res) => {
 
     const user = await User.findOne({ username });
     if (!user) {
-      return res.status(400).json({ message: "Pogrešno korisničko ime ili šifra." });
+      return res.status(400).json({ message: "There is no user." });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Pogrešno korisničko ime ili šifra." });
+      return res.status(400).json({ message: "Wrong password." });
     }
 
     const token = jwt.sign(
@@ -53,7 +53,7 @@ const loginUser = async (req, res) => {
 
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Greška pri loginu." });
+    res.status(500).json({ message: "Login error." });
   }
 };
 
