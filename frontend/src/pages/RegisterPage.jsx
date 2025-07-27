@@ -8,7 +8,7 @@ const { Title } = Typography;
 
 const RegisterPage = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); //kao kod login
 
   const onFinish = async (values) => {
     setLoading(true);
@@ -19,11 +19,11 @@ const RegisterPage = () => {
         phone: values.phone,
       });
 
-      message.success("Uspješna registracija! Možete se prijaviti.");
+      message.success("Successful registration! You can apply.");
       navigate("/login");
     } catch (err) {
       console.error(err);
-      message.error(err.response?.data?.message || "Greška pri registraciji.");
+      message.error(err.response?.data?.message || "Registration error.");
     } finally {
       setLoading(false);
     }

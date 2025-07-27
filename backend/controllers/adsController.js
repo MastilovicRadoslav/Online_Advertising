@@ -1,9 +1,11 @@
 const Ad = require("../models/Ad");
 
+//title, desription, price, category, city, req.file
 const createAd = async (req, res) => {
   try {
     const { title, description, price, category, city } = req.body;
 
+    //Ako postoji slika (upload), čuvam je kao imageUrl
     const imagePath = req.file ? `/uploads/${req.file.filename}` : "";
 
     const newAd = new Ad({
@@ -69,11 +71,11 @@ const getAds = async (req, res) => {
             .limit(pageSize)
             .populate("user", "username phone");
 
-        const total = await Ad.countDocuments(query); // ← dodaj ovo
+        const total = await Ad.countDocuments(query); //
 
         res.json({
             ads,
-            total, // ← i ovo
+            total, // 
         });
 
     } catch (err) {
@@ -84,6 +86,7 @@ const getAds = async (req, res) => {
 
 const mongoose = require("mongoose");
 
+//id
 const getAdById = async (req, res) => {
     const id = req.params.id.trim();
 
@@ -105,7 +108,7 @@ const getAdById = async (req, res) => {
     }
 };
 
-
+//id
 const updateAd = async (req, res) => {
   const id = req.params.id.trim();
 
@@ -120,6 +123,7 @@ const updateAd = async (req, res) => {
       return res.status(404).json({ message: "Ad not found." });
     }
 
+    //Baš taj korisnik je vlasnik oglasa
     if (ad.user.toString() !== req.user.userId) {
       return res.status(403).json({ message: "Not authorized to update this ad." });
     }
@@ -145,6 +149,7 @@ const updateAd = async (req, res) => {
 };
 
 
+//id
 const deleteAd = async (req, res) => {
     const id = req.params.id.trim();
     console.log("ID:", JSON.stringify(req.params.id));

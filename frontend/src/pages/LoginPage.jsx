@@ -10,7 +10,7 @@ const { Title, Text } = Typography;
 const LoginPage = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); // sprječavam klik više puta, prikazujem kružić
   const [loginError, setLoginError] = useState("");
 
   const onFinish = async (values) => {

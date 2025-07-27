@@ -15,7 +15,7 @@ const optionalAuth = require("../middleware/optionalAuthMiddleware");
 
 
 // GET-ovi ne traže login
-router.get("/", optionalAuth, getAds); // 👈 sad req.user postoji ako je token validan
+router.get("/", optionalAuth, getAds); 
 router.get("/:id", getAdById);
 
 // Zaštićene rute za CRUD + upload slike

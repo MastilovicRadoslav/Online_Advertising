@@ -1,9 +1,9 @@
 import { createContext, useState, useEffect } from "react";
 
-// 1. Napravi kontekst
+// 1. Napravi kontekst (kanal za razmjenu podataka)
 export const AuthContext = createContext();
 
-// 2. Provider komponenta
+// 2. Provider komponenta (davaoc podataka iznad kanalu)
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     token: null,

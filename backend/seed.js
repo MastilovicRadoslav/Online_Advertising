@@ -10,7 +10,7 @@ const Ad = require("./models/Ad");
 
 dotenv.config();
 
-// 🔗 Kategorije i proizvodi sa tačnim slikama
+// Kategorije i proizvodi sa tačnim slikama
 const productsWithImages = {
   clothing: [
     { title: "T-shirt", image: "/uploads/t-shirt.JPEG" },
@@ -71,12 +71,12 @@ const productsWithImages = {
 async function seed() {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log("📡 Povezan sa bazom.");
+    console.log("Povezan sa bazom.");
 
     // Brisanje starih podataka
     await User.deleteMany();
     await Ad.deleteMany();
-    console.log("🗑️ Stari podaci obrisani.");
+    console.log("Stari podaci obrisani.");
 
     // Dodavanje korisnika
     const users = [];
@@ -90,7 +90,7 @@ async function seed() {
       await user.save();
       users.push(user);
     }
-    console.log("👤 Korisnici dodani.");
+    console.log("Korisnici dodani.");
 
     // Dodavanje oglasa
     const allCategories = Object.keys(productsWithImages);
@@ -112,10 +112,10 @@ async function seed() {
       await ad.save();
     }
 
-    console.log("📦 Oglasi dodani.");
+    console.log("Oglasi dodani.");
     process.exit();
   } catch (err) {
-    console.error("❌ Greška prilikom seed-ovanja:", err.message);
+    console.error("Greška prilikom seed-ovanja:", err.message);
     process.exit(1);
   }
 }

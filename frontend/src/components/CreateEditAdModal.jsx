@@ -47,7 +47,7 @@ const CreateEditAdModal = ({ visible, onClose, ad = null, onSuccess }) => {
   const handleFinish = async (values) => {
     try {
       setLoading(true);
-      const formData = new FormData();
+      const formData = new FormData(); //za slanje slike + tekstualni podaci
 
       formData.append("title", values.title);
       formData.append("description", values.description);

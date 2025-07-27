@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router(); //Modularni sistem ruta
 const { registerUser, loginUser } = require("../controllers/authController");
 
 //Ruta za registraciju

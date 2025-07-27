@@ -2,6 +2,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+//username, password, phone
 const registerUser = async (req, res) => {
   try {
     const { username, password, phone } = req.body;
@@ -19,7 +20,7 @@ const registerUser = async (req, res) => {
       phone,
     });
 
-    await newUser.save();
+    await newUser.save(); // Čuvam u bazi
 
     res.status(201).json({ message: "Successful registration." });
   } catch (err) {
@@ -28,7 +29,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-
+//username, password
 const loginUser = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -43,6 +44,7 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: "Wrong password." });
     }
 
+    //Generisanje tokena (zaštita ruta)
     const token = jwt.sign(
       { userId: user._id, username: user.username },
       process.env.JWT_SECRET,
